@@ -11,11 +11,6 @@ public interface SkaterDao {
 
     int insertSkater (UUID id, Skater skater);
 
-    default int insertSkater(Skater skater){
-        UUID id = UUID.randomUUID();
-        return insertSkater(id, skater);
-    }
-
     List<Skater> selectAllSkaters();
 
     Optional<Skater> selectSkaterById(UUID id);

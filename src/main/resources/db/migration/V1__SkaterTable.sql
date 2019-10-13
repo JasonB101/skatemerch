@@ -14,4 +14,4 @@ CREATE TABLE images (
     id UUID NOT NULL PRIMARY KEY,
     product_id UUID NOT NULL,
     url_to_image VARCHAR(1000) NOT NULL
-);
+)
