@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img {
+    width: 60px;
+    margin: 1px;
+    border: 1px solid rgb(206, 202, 202);
+    padding: 2px;
+    cursor: pointer;
+}
+
+.img:hover {
+    border-color: rgb(153, 153, 153);
+}
