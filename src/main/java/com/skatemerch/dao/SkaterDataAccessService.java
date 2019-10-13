@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Array;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -30,8 +31,12 @@ public class SkaterDataAccessService implements SkaterDao {
         List<Skater> skaters = jdbcTemplate.query(sql, ((resultSet, i) -> {
             UUID id = UUID.fromString(resultSet.getString("id"));
             String name = resultSet.getString("name");
-
-            return new Skater(id, name);
+            String type = resultSet.getString("type");
+            String link = resultSet.getString("link");
+    // THIS IS ALL WRONG, NEED TO FIGURE OUT POST BEFORE GET REQUESTS
+    // Need to spin up instances of the product model and image model and use getters for values to pass to skater.
+            String[] strings = {"test", "ting"};
+            return new Skater(id, name, type, link, strings);
 
         }));
 

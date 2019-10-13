@@ -1,5 +1,7 @@
 package com.skatemerch.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.UUID;
 
 public class Product {
@@ -8,7 +10,9 @@ public class Product {
     private String link;
     private UUID skater_id;
 
-    public Product(String type, String link, UUID skater_id) {
+    public Product(@JsonProperty("type") String type,
+                   @JsonProperty("link") String link,
+                   UUID skater_id) {
         this.id = UUID.randomUUID();
         this.type = type;
         this.link = link;
