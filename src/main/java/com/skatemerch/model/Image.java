@@ -10,9 +10,12 @@ public class Image {
     private UUID product_id;
     private String url_to_image;
 
-    public Image(UUID product_id,
-                 @JsonProperty("url_to_image") String url_to_image
-    ) {
+    public Image(UUID id, String url_to_image, UUID product_id){
+        this(url_to_image, product_id);
+        this.id = id;
+    }
+
+    public Image(String url_to_image, UUID product_id) {
         this.id = UUID.randomUUID();
         this.product_id = product_id;
         this.url_to_image = url_to_image;
