@@ -1,0 +1,8 @@
+{
+    "skaterId": //If you are adding a product to an existing skater,
+    "skaterName": //If you are adding a new skater,
+    "avatar": //ImgURL of skater if you are adding a new skater,
+    "type": //Type of product,
+    "link": //Link to product on Amazon,
+    "urlsToImages": [ //Array of urls to product images ],
+}
