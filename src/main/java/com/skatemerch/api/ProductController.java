@@ -21,7 +21,7 @@ public class ProductController {
 
     @PostMapping
     public void addSkater(@RequestBody Product product){
-        productService.addProduct(product);
+        productService.addProduct(product, product.getSkater(), product.getImages());
     }
 
     @GetMapping

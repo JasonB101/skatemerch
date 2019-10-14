@@ -10,6 +10,9 @@ public class Product {
     private UUID id;
     private String type;
     private String link;
+
+
+
     private Skater skater;
     private List<Image> images = new ArrayList<>();
 
@@ -45,6 +48,10 @@ public class Product {
         return skater.getId();
     }
 
+    public Skater getSkater() { return skater; }
+
+    public List<Image> getImages() { return images; }
+
     public void checkInfo(){
         System.out.println();
         System.out.println("Skater Id: " + skater.getId());
@@ -59,7 +66,7 @@ public class Product {
         for (Image image : images){
             System.out.println("Image id: " + image.getId());
             System.out.println("Product id: " + image.getProduct_id());
-            System.out.println("Image Url: " + image.getUrl_to_image());
+            System.out.println("Image Url: " + image.getUrlToImage());
             System.out.println();
         }
     }

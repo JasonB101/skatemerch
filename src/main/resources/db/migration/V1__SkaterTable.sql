@@ -1,17 +1,18 @@
-CREATE TABLE skater (
+CREATE TABLE skaters (
     id UUID NOT NULL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL
+    name VARCHAR(100) NOT NULL,
+    avatar VARCHAR(1000) NOT NULL
 );
 
 CREATE TABLE products (
     id UUID NOT NULL PRIMARY KEY,
     type VARCHAR(20) NOT NULL,
     link VARCHAR(1000) NOT NULL,
-    skater_id UUID NOT NULL
+    skaterId UUID NOT NULL
 );
 
 CREATE TABLE images (
     id UUID NOT NULL PRIMARY KEY,
-    product_id UUID NOT NULL,
-    url_to_image VARCHAR(1000) NOT NULL
-)
+    productId UUID NOT NULL,
+    urlToImage VARCHAR(1000) NOT NULL
+);

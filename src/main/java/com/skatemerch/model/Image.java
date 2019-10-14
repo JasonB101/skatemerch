@@ -7,8 +7,8 @@ import java.util.UUID;
 public class Image {
 
     private UUID id;
-    private UUID product_id;
-    private String url_to_image;
+    private UUID productId;
+    private String urlToImage;
 
     public Image(UUID id, String url_to_image, UUID product_id){
         this(url_to_image, product_id);
@@ -17,8 +17,8 @@ public class Image {
 
     public Image(String url_to_image, UUID product_id) {
         this.id = UUID.randomUUID();
-        this.product_id = product_id;
-        this.url_to_image = url_to_image;
+        this.productId = product_id;
+        this.urlToImage = url_to_image;
     }
 
     public UUID getId() {
@@ -26,11 +26,11 @@ public class Image {
     }
 
     public UUID getProduct_id() {
-        return product_id;
+        return productId;
     }
 
-    public String getUrl_to_image() {
-        return url_to_image;
+    public String getUrlToImage() {
+        return urlToImage;
     }
 
 }
