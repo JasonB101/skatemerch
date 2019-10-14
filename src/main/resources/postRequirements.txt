@@ -4,5 +4,6 @@
     "avatar": //ImgURL of skater if you are adding a new skater,
     "type": //Type of product,
     "link": //Link to product on Amazon,
+    "review": //Review of product,
     "urlsToImages": [ //Array of urls to product images ],
 }

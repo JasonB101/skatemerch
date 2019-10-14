@@ -23,8 +23,11 @@ public class ProductDataAccessService implements ProductDao {
     public int insertProduct(Product product, Skater skater, List<Image> images) {
         String skaterSQL = "INSERT INTO skaters (id, name, avatar) VALUES (?,?,?) ON CONFLICT DO NOTHING";
         Object[] skaterInfo = {skater.getId(), skater.getName(), skater.getAvatar()};
-        String productSQL = "INSERT INTO products (id, type, link, skaterId) VALUES (?,?,?,?)";
-        Object[] productInfo = {product.getId(), product.getType(), product.getLink(), product.getSkater_id()};
+        String productSQL = "INSERT INTO products (id, type, link, review, skaterId) VALUES (?,?,?, ?,?)";
+
+        Object[] productInfo = {product.getId(), product.getType(), product.getLink(),
+                                product.getReview(), product.getSkater_id()};
+
         String imageSQL = "INSERT INTO images (id, urlToImage, productId) VALUES (?,?,?)";
         jdbcTemplate.update(skaterSQL, skaterInfo);
         jdbcTemplate.update(productSQL, productInfo);
@@ -68,11 +71,13 @@ public class ProductDataAccessService implements ProductDao {
             String type = resultSet.getString("type");
             String link = resultSet.getString("link");
             String skaterId = resultSet.getString("skaterId");
+            String review = resultSet.getString("review");
             List<Object> images = getImages(id);
 
             product.put("id", id);
             product.put("type", type);
             product.put("link", link);
+            product.put("review", review);
             product.put("skater", skaterId);
             product.put("images", images);
 

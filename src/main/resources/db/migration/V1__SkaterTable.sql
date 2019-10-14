@@ -8,6 +8,7 @@ CREATE TABLE products (
     id UUID NOT NULL PRIMARY KEY,
     type VARCHAR(20) NOT NULL,
     link VARCHAR(1000) NOT NULL,
+    review VARCHAR(550),
     skaterId UUID NOT NULL
 );
 
