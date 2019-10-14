@@ -25,7 +25,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getAllSkaters(){
+    public Object getAllSkaters(){
         return productService.getAllProducts();
     }
 

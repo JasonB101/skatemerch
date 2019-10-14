@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -25,7 +26,7 @@ public class ProductService {
         return productDao.insertProduct(product, skater, images);
     }
 
-    public List<Product> getAllProducts(){
+    public Map<String,Object> getAllProducts(){
         return productDao.selectAllProducts();
     }
 
