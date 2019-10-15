@@ -2,6 +2,16 @@
     margin: 40px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.wrapper > div {
+    display: flex;
     flex-wrap: wrap;
+}
+
+@media (max-width: 850px) {
+    .wrapper {
+        margin: 20px;
+    }
 }

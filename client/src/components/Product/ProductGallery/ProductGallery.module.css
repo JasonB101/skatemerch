@@ -1,5 +1,6 @@
 .wrapper {
     display: flex;
+    justify-content: left;
     flex-wrap: wrap;
 }
 
@@ -13,4 +14,10 @@
 
 .img:hover {
     border-color: rgb(153, 153, 153);
+}
+
+@media (max-width: 850px) {
+    .wrapper {
+        justify-content: center;
+    }
 }

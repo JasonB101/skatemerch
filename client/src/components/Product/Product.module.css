@@ -1,18 +1,50 @@
 .wrapper {
+    display: grid;
+
+    grid-template-areas: 
+    "di in"
+    "di rv"
+    ;
+    grid-template-columns: 60% 40%;
+    grid-auto-rows: max-content;
+
     padding: 10px;
-    display: flex;
-    width: 45%;
+    width: 800px;
     background-color: white;
 }
 
-.img {
-    width: 60%;
+.displayImgWrapper {
+    grid-area: di;
+    display: flex;
+    align-items: center;
+}
+
+.displayImg {
+    margin: 10px;
+    width: 95%;
 }
 
 .info {
+    grid-area: in;
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.reviewWrapper {
+    grid-area: rv;
+}
+
+@media (max-width: 850px) {
+    .wrapper {
+        width: 95%;
+        grid-template-areas: 
+        "di in"
+        "rv rv"
+        ;
+    }
+
+   
 }

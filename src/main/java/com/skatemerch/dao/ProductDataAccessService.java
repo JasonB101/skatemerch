@@ -72,6 +72,7 @@ public class ProductDataAccessService implements ProductDao {
             String link = resultSet.getString("link");
             String skaterId = resultSet.getString("skaterId");
             String review = resultSet.getString("review");
+            
             List<Object> images = getImages(id);
 
             product.put("id", id);
