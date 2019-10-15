@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "./ProSkaterCard.module.css"
+import Styles from "./ProSkaterCard.module.scss"
 
 const ProSkaterCard = (props) => {
     const {name, img, id} = props

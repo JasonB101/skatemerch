@@ -1,6 +1,6 @@
 import React from "react";
 import ProSkaterCard from "./ProSkaterCard/ProSkaterCard"
-import Styles from "./ProSkaterMenu.module.css"
+import Styles from "./ProSkaterMenu.module.scss"
 
 const ProSkaterMenu = ({ skaters }) => {
     const skaterCards = skaters.map(x => <ProSkaterCard key={x.id} {...x} />)

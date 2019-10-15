@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Styles from "./Product.module.css"
+import Styles from "./Product.module.scss"
 import AmazonButton from "./AmazonButton/AmazonButton";
 import Review from "./Review/Review";
 import ProductGallery from "./ProductGallery/ProductGallery"

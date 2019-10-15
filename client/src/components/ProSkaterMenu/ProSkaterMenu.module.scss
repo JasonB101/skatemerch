@@ -3,12 +3,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    div {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
-.wrapper > div {
-    display: flex;
-    flex-wrap: wrap;
-}
 
 @media (max-width: 850px) {
     .wrapper {
