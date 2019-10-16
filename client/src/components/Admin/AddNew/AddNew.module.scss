@@ -1,0 +1,18 @@
+.transparentWrapper {
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5)
+}
+
+.wrapper {
+    z-index: 2;
+    border: 2px dashed black;
+    background-color: white;
+}
+

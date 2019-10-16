@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 200px;
+    background-color: white;
+}
+
+.selector {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    cursor: pointer;
+
+    img {
+        height: 100%;
+    }
+}

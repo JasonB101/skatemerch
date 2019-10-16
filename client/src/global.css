@@ -3,6 +3,7 @@
     margin: 0;
 }
 
+
 body {
     padding-top: 100px;
     background-color: rgb(87, 82, 82);
@@ -11,26 +12,22 @@ body {
 }
 
 .shadow {
-    -moz-box-shadow:    3px 3px 7px 6px rgb(27, 27, 27);
+    -moz-box-shadow: 3px 3px 7px 6px rgb(27, 27, 27);
     -webkit-box-shadow: 3px 3px 7px 6px rgb(27, 27, 27);
-    box-shadow:         3px 1px 7px 6px rgb(27, 27, 27);
-  }
-  .soft-shadow {
-    -moz-box-shadow:    1px 1px 10px 4px rgb(27, 27, 27);
-    -webkit-box-shadow: 1px 1px 10px 4px rgb(27, 27, 27);
-    box-shadow:         1px 1px 10px 4px rgb(27, 27, 27);
-  }
+    box-shadow: 3px 1px 7px 6px rgb(27, 27, 27);
+}
 
-  main {
+.soft-shadow {
+    -moz-box-shadow: 1px 1px 10px 4px rgb(27, 27, 27);
+    -webkit-box-shadow: 1px 1px 10px 4px rgb(27, 27, 27);
+    box-shadow: 1px 1px 10px 4px rgb(27, 27, 27);
+}
+
+main {
     display: flex;
     justify-content: center;
-  }
+}
 
-  .spacer {
-      flex: 1;
-  }
-
-  a {
-      width: fit-content;
-      text-align: center;
-  }
+.spacer {
+    flex: 1;
+}

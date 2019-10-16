@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/Header/Header"
 import ProSkaterMenu from "./components/ProSkaterMenu/ProSkaterMenu";
 import Product from "./components/Product/Product"
+import AddNew from "./components/Admin/AddNew/AddNew";
 
 const App = (props) => {
 
@@ -38,6 +39,7 @@ const App = (props) => {
             <main>
                 <Product currentSkater={skaters[0]}/>
             </main>
+            <AddNew />
         </>
     );
 }
