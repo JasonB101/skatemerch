@@ -1,38 +1,48 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    height: 120px;
+    text-align: center;
     width: 120px;
-    background-color: rgb(216, 211, 211);
+    background-color: rgb(20, 20, 20);
     margin: 8px;
 
+    transition: background-color .5s;
+    -webkit-transition: background-color .5s;
+    -o-transition: background-color .5s;
+    -moz-transition: background-color .5s;
+
     &:hover {
-        background-color: rgb(172, 169, 169);
+        background-color: rgb(52, 53, 53);
         cursor: pointer;
     }
 
     h5 {
+        color: rgb(204, 195, 195);
+        word-spacing: 120px;
         font-size: 14px;
         margin: 5px;
     }
 
-    img {
-        height: 70%;
+    div {
+        img {
+            width: 100%;
+
+        }
     }
+
 }
+
 
 
 
 @media (max-width: 850px) {
     .wrapper {
         width: 80px;
-        height: 80px;
 
         h5 {
             font-size: 10px;
             margin: 2px;
+            word-spacing: 80px;
         }
     }
 }

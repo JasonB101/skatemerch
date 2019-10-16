@@ -1,0 +1,50 @@
+$addNewBLue: rgb(13, 90, 134);
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    div {
+        display: flex;
+        align-items: flex-end;
+        margin: 5px;
+    }
+
+    input {
+        flex: 1;
+        &::placeholder{
+            color: $addNewBLue;
+        }
+        padding: 5px;
+        margin: 0 5px;
+        font-size: 20px;
+    }
+    img {
+        padding: 5px;
+        height: 120px;
+
+    }
+
+    button {
+        margin: 10px 0 0 0;
+        font-size: 16px;
+        border-radius: 5px;
+        height: 40px;
+        color: white;
+        background-color: $addNewBLue;
+    }
+}
+
+@media (max-width: 450px){
+    .wrapper {
+
+        input {
+            font-size: 16px;
+        }
+
+        img {
+            height: 60px;
+        }
+    }
+}

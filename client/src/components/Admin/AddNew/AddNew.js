@@ -9,8 +9,10 @@ const AddNew = (props) => {
     return (
         <div className={Styles.transparentWrapper}>
             <div className={Styles.wrapper}>
-                <Selection />
+                {/* <Selection /> */}
+                <AddNewSkater/>
             </div>
+            
             
         </div>
     );

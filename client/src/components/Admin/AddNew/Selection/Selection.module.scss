@@ -1,3 +1,5 @@
+$addNewBlue: rgb(13, 90, 134);
+
 .wrapper {
     display: flex;
     justify-content: space-around;
@@ -15,7 +17,18 @@
     height: 100px;
     cursor: pointer;
 
+    h4 {
+        font-size: 24px;
+        color: $addNewBlue;
+    }
+
     img {
         height: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    .wrapper {
+        width: 95%;
     }
 }

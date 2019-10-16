@@ -6,7 +6,7 @@ import AddNew from "./components/Admin/AddNew/AddNew";
 
 const App = (props) => {
 
-    const tempLink = "https://www.onlygfx.com/wp-content/uploads/2019/05/12-skateboarder-silhouette-1.png"
+    const tempLink = "http://streetleague.wpengine.netdna-cdn.com/wp-content/uploads/2018/07/2018_ProPage_headshots_NyjahHuston.jpg"
     const skaters = [
         {
             name: "Nyjah Houston", img: tempLink, id: "nyjahhouston", products: {
@@ -22,10 +22,10 @@ const App = (props) => {
                 }
             }
         },
-        { name: "Kelvin Hoefler", img: tempLink, id: "kelvinhoefler" },
+        { name: "Kelvin Hoeflerffffffffff", img: tempLink, id: "kelvinhoefler" },
         { name: "Chaz Ortiz", img: tempLink, id: "chazortiz" },
         { name: "Louie Lopez", img: tempLink, id: "louielopez" },
-        { name: "Yuto Horigome", img: tempLink, id: "yutohorigome" },
+        { name: "Yuto Horigome", img: "http://streetleague.wpengine.netdna-cdn.com/wp-content/uploads/2018/07/2018_ProPage_headshots_YutoHorigome.jpg", id: "yutohorigome" },
         { name: "Gustavo Rubiero", img: tempLink, id: "gustavoruberio" },
         { name: "Gustavo Rubiero", img: tempLink, id: "gustavoruberio" },
         { name: "Gustavo Rubiero", img: tempLink, id: "gustavoruberio" },
@@ -39,7 +39,7 @@ const App = (props) => {
             <main>
                 <Product currentSkater={skaters[0]}/>
             </main>
-            <AddNew />
+            {/* <AddNew /> */}
         </>
     );
 }
