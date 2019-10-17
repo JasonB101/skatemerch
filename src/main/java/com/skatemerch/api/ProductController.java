@@ -20,9 +20,10 @@ public class ProductController {
     }
 
     @PostMapping
-    public void addSkater(@RequestBody Product product){
-        productService.addProduct(product, product.getSkater(), product.getImages());
+    public void addProduct(@RequestBody Product product){
+        productService.addProduct(product, product.getImages());
     }
+
 
     @GetMapping
     public Object getAllSkaters(){

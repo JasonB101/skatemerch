@@ -20,16 +20,16 @@ public class ProductDataAccessService implements ProductDao {
     }
 
     @Override
-    public int insertProduct(Product product, Skater skater, List<Image> images) {
-        String skaterSQL = "INSERT INTO skaters (id, name, avatar) VALUES (?,?,?) ON CONFLICT DO NOTHING";
-        Object[] skaterInfo = {skater.getId(), skater.getName(), skater.getAvatar()};
+    public int insertProduct(Product product, List<Image> images) {
+//        String skaterSQL = "INSERT INTO skaters (id, name, avatar) VALUES (?,?,?) ON CONFLICT DO NOTHING";
+//        Object[] skaterInfo = {skater.getId(), skater.getName(), skater.getAvatar()};
         String productSQL = "INSERT INTO products (id, type, link, review, skaterId) VALUES (?,?,?, ?,?)";
 
         Object[] productInfo = {product.getId(), product.getType(), product.getLink(),
-                                product.getReview(), product.getSkater_id()};
+                                product.getReview(), product.getSkaterId()};
 
         String imageSQL = "INSERT INTO images (id, urlToImage, productId) VALUES (?,?,?)";
-        jdbcTemplate.update(skaterSQL, skaterInfo);
+//        jdbcTemplate.update(skaterSQL, skaterInfo);
         jdbcTemplate.update(productSQL, productInfo);
 
         for (Image image : images){
@@ -48,16 +48,6 @@ public class ProductDataAccessService implements ProductDao {
         response.put("skaters", getSkaters());
         response.put("products", products);
         return response;
-    }
-
-    @Override
-    public int deleteSkaterById(UUID id) {
-        return 0;
-    }
-
-    @Override
-    public int updateSkaterById(UUID id, Product product) {
-        return 0;
     }
 
     private List<Object> getProducts(){

@@ -9,13 +9,15 @@ import java.util.UUID;
 public class Skater {
 
     private UUID id;
-    private String name;
-    private String avatar;
+    private String skaterName;
+    private String skaterAvatar;
 
-    public Skater(UUID id, String name, String avatar){
+    public Skater(UUID id,
+                  @JsonProperty("skaterName") String skaterName,
+                  @JsonProperty("skaterAvatar") String skaterAvatar){
         this.id = id == null ? UUID.randomUUID() : id;
-        this.name = name;
-        this.avatar = avatar;
+        this.skaterName = skaterName;
+        this.skaterAvatar = skaterAvatar;
     }
 
 
@@ -24,9 +26,9 @@ public class Skater {
         return id;
     }
     public String getName() {
-        return name;
+        return skaterName;
     }
-    public String getAvatar() { return avatar; }
+    public String getAvatar() { return skaterAvatar; }
 
 
 }

@@ -9,7 +9,7 @@ CREATE TABLE products (
     type VARCHAR(20) NOT NULL,
     link VARCHAR(1000) NOT NULL,
     review VARCHAR(550),
-    skaterId UUID NOT NULL
+    skaterId UUID
 );
 
 CREATE TABLE images (

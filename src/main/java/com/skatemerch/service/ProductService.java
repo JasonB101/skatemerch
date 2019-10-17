@@ -22,8 +22,12 @@ public class ProductService {
         this.productDao = productDao;
     }
 
-    public int addProduct(Product product, Skater skater, List<Image> images){
-        return productDao.insertProduct(product, skater, images);
+    public int addProduct(Product product, List<Image> images){
+        return productDao.insertProduct(product, images);
+    }
+
+    public int addSkater(Skater skater){
+        return 0;
     }
 
     public Map<String,Object> getAllProducts(){
