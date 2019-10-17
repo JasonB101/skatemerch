@@ -35,7 +35,6 @@ public class ProductDataAccessService implements ProductDao {
             jdbcTemplate.update(imageSQL, imageInfo);
         }
 
-
         return 0;
     }
 
@@ -48,7 +47,6 @@ public class ProductDataAccessService implements ProductDao {
     private List<Object> getProducts(){
         String productsSQL = "SELECT * FROM products";
         List<Object> products = new ArrayList<>();
-
 
         jdbcTemplate.query(productsSQL, resultSet -> {
             Map<String, Object> product = new HashMap<>();
@@ -91,7 +89,4 @@ public class ProductDataAccessService implements ProductDao {
 
         return images;
     }
-
-
-
 }
