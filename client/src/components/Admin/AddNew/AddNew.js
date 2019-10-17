@@ -10,14 +10,21 @@ const AddNew = (props) => {
 
     const toggle = (e) => {
         if (e.target.id === "exitAddNew"){
-            let newObj = {...showAddNew};
+            clearAddNew();
+        }
+    }
 
+    const clearAddNew = () => {
+        let newObj = {...showAddNew};
             for (let x in newObj){
                 newObj[x] = false;
             }
-
             toggleAddNew(newObj);
-        }
+    }
+
+    const addNewSkaterProps = {
+        showAddNew: [clearAddNew, toggleAddNew],
+        lastSkater: props.lastSkater
     }
 
     return (
@@ -25,7 +32,7 @@ const AddNew = (props) => {
             onClick={toggle}>
             <div className={Styles.wrapper}>
                 {selection && <Selection addNewComponent={props.addNew}/>}
-                {addSkater && <AddNewSkater addNewComponent={props.addNew}/>}
+                {addSkater && <AddNewSkater {...addNewSkaterProps}/>}
                 {addProduct && <AddNewProduct addNewComponent={props.addNew}/>}
             </div>
         </div>
