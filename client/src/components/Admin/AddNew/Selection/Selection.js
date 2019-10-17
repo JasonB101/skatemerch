@@ -1,7 +1,7 @@
 import React from "react";
 import Styles from "./Selection.module.scss"
 import skaterImg from "../../../../images/icons/skater.png"
-import productImg from "../../../../images/icons/shoe.png"
+import productImg from "../../../../images/icons/hat.png"
 
 const Selection = (props) => {
 

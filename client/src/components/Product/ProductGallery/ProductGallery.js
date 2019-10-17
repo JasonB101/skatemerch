@@ -9,7 +9,7 @@ const ProductGallery = ({images, imageMethods}) => {
 
     return (
         <div className={Styles.wrapper}>
-            {imagesToRender}
+            {imagesToRender && imagesToRender}
         </div>
     );
 }

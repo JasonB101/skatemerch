@@ -1,0 +1,86 @@
+$addNewBLue: rgb(13, 90, 134);
+
+.wrapper {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+    &>button {
+        margin-top: 6px;
+        padding: 3px;
+        border-radius: 5px;
+        font-size: 18px;
+        color: rgb(240, 238, 238);
+        background-color: $addNewBLue;
+        width: 70%;
+    }
+}
+
+.loadLinkWrapper {
+    display: flex;
+    width: 100%;
+
+    input {
+        padding: 3px;
+        flex: 1;
+        font-size: 24px;
+    }
+
+    button {
+        background-color: $addNewBLue;
+        color: rgb(240, 236, 236);
+        font-size: 18px;
+        height: 40px;
+        width: 60px;
+        margin-left: 5px;
+    }
+}
+
+.imageWrapper {
+    display: flex;
+    align-items: center;
+
+    &>* {
+        margin: 10px;
+    }
+
+    .currentImage {
+        width: 250px;
+    }
+}
+
+.skaterWrapper {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+
+    h4 {
+        margin-right: 10px;
+    }
+}
+
+.reviewWrapper {
+    width: 100%;
+
+    textarea {
+        padding: 3px;
+        width: 100%;
+        font-size: 12px;
+
+    }
+}
+
+@media (max-width: 650px) {
+    .wrapper {
+        width: 350px;
+        margin: 0;
+    }
+
+    .imageWrapper {
+        .currentImage {
+            width: 130px;
+        }
+    }
+}

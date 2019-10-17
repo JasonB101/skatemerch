@@ -39,7 +39,7 @@ const App = (props) => {
             <main>
                 <Product currentSkater={skaters[0]}/>
             </main>
-            {/* <AddNew /> */}
+            <AddNew />
         </>
     );
 }
