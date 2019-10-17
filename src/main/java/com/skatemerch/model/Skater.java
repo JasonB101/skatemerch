@@ -12,12 +12,13 @@ public class Skater {
     private String skaterName;
     private String skaterAvatar;
 
-    public Skater(UUID id,
-                  @JsonProperty("skaterName") String skaterName,
+    public Skater(@JsonProperty("skaterName") String skaterName,
                   @JsonProperty("skaterAvatar") String skaterAvatar){
-        this.id = id == null ? UUID.randomUUID() : id;
+
+        this.id = UUID.randomUUID();
         this.skaterName = skaterName;
         this.skaterAvatar = skaterAvatar;
+        checkInfo();
     }
 
 
@@ -30,5 +31,15 @@ public class Skater {
     }
     public String getAvatar() { return skaterAvatar; }
 
+
+    public void checkInfo() {
+        System.out.println();
+        System.out.println("Skater Name: " + getName());
+        System.out.println("Skater Avatar: " + getAvatar());
+        System.out.println();
+        System.out.println("Skater Id: " + getId());
+
+
+    }
 
 }

@@ -11,7 +11,7 @@ public interface ProductDao {
 
     int insertProduct (Product product, List<Image> images);
 
-    Map<String,Object> selectAllProducts();
+    List<Object> selectAllProducts();
 
 
 

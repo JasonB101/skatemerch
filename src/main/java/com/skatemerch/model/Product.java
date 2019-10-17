@@ -15,12 +15,13 @@ public class Product {
     private UUID skaterId;
     private List<Image> images = new ArrayList<>();
 
-    public Product(@JsonProperty("skaterId") UUID skaterId,
+    public Product(@JsonProperty("skaterId") String skaterId,
                   @JsonProperty("type") String type,
                   @JsonProperty("link") String link,
                   @JsonProperty("review") String review,
                   @JsonProperty("urlsToImages") String[] urls) {
         this.id = UUID.randomUUID();
+        this.skaterId = UUID.fromString(skaterId);
         this.type = type;
         this.link = link;
         this.review = review;

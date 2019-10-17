@@ -2,14 +2,13 @@ package com.skatemerch.dao;
 
 import com.skatemerch.model.Image;
 import com.skatemerch.model.Product;
-import com.skatemerch.model.Skater;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("postgres")
+@Repository("postgresProduct")
 public class ProductDataAccessService implements ProductDao {
 
     private final JdbcTemplate jdbcTemplate;
@@ -21,15 +20,14 @@ public class ProductDataAccessService implements ProductDao {
 
     @Override
     public int insertProduct(Product product, List<Image> images) {
-//        String skaterSQL = "INSERT INTO skaters (id, name, avatar) VALUES (?,?,?) ON CONFLICT DO NOTHING";
-//        Object[] skaterInfo = {skater.getId(), skater.getName(), skater.getAvatar()};
+
         String productSQL = "INSERT INTO products (id, type, link, review, skaterId) VALUES (?,?,?, ?,?)";
 
         Object[] productInfo = {product.getId(), product.getType(), product.getLink(),
                                 product.getReview(), product.getSkaterId()};
 
         String imageSQL = "INSERT INTO images (id, urlToImage, productId) VALUES (?,?,?)";
-//        jdbcTemplate.update(skaterSQL, skaterInfo);
+
         jdbcTemplate.update(productSQL, productInfo);
 
         for (Image image : images){
@@ -42,12 +40,9 @@ public class ProductDataAccessService implements ProductDao {
     }
 
     @Override
-    public Map<String,Object> selectAllProducts() {
-        Map<String,Object> response = new HashMap<>();
+    public List<Object> selectAllProducts() {
         List<Object> products = getProducts();
-        response.put("skaters", getSkaters());
-        response.put("products", products);
-        return response;
+        return products;
     }
 
     private List<Object> getProducts(){
@@ -97,26 +92,6 @@ public class ProductDataAccessService implements ProductDao {
         return images;
     }
 
-    private List<Object> getSkaters(){
-        String skatersSQL = "SELECT * FROM skaters";
-        List<Object> skaters = new ArrayList<>();
 
-        jdbcTemplate.query(skatersSQL, resultSet -> {
-            String id = resultSet.getString("id");
-            String name = resultSet.getString("name");
-            String avatar = resultSet.getString("avatar");
-            Map<String, String> skaterFromDB = new HashMap<>();
-
-            skaterFromDB.put("id", id);
-            skaterFromDB.put("name", name);
-            skaterFromDB.put("avatar", avatar);
-
-            skaters.add(skaterFromDB);
-
-
-        });
-
-        return skaters;
-    }
 
 }

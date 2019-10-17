@@ -18,7 +18,7 @@ public class ProductService {
     private final ProductDao productDao;
 
     @Autowired
-    public ProductService(@Qualifier("postgres") ProductDao productDao) {
+    public ProductService(@Qualifier("postgresProduct") ProductDao productDao) {
         this.productDao = productDao;
     }
 
@@ -26,11 +26,8 @@ public class ProductService {
         return productDao.insertProduct(product, images);
     }
 
-    public int addSkater(Skater skater){
-        return 0;
-    }
 
-    public Map<String,Object> getAllProducts(){
+    public List<Object> getAllProducts(){
         return productDao.selectAllProducts();
     }
 

@@ -1,6 +1,6 @@
 CREATE TABLE skaters (
     id UUID NOT NULL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+    name VARCHAR(100) NOT NULL UNIQUE,
     avatar VARCHAR(1000) NOT NULL
 );
 
