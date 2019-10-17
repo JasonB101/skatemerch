@@ -10,7 +10,8 @@ const AddNewProduct = (props) => {
         "https://images-na.ssl-images-amazon.com/images/I/71MKQvo0TpL._UY395_.jpg",
         "https://images-na.ssl-images-amazon.com/images/I/71oNyU12lgL._UY395_.jpg"
     ]
-    const [currentImage, changeImage] = useState(images[0])
+
+    const [currentImage, setImage] = useState(images[0])
 
     return (
         <div className={Styles.wrapper} >
@@ -20,7 +21,7 @@ const AddNewProduct = (props) => {
             </div>
             <div className={Styles.imageWrapper} >
                 <img className={Styles.currentImage} src={currentImage} />
-                <ProductGallery images={images} imageMethods={[]} />
+                <ProductGallery images={images} imageMethods={[currentImage, setImage]} />
             </div>
             <div className={Styles.skaterWrapper}>
                 <h4>Skater:</h4>
@@ -32,8 +33,7 @@ const AddNewProduct = (props) => {
                 <h4>Review</h4>
                 <textarea rows="6" />
             </div>
-            <button>Sumbit</button>
-            <button>Start Over</button>
+            <button className={Styles.submit}>Submit</button>
         </div>
     );
 }

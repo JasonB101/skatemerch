@@ -1,10 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "./components/Header/Header"
 import ProSkaterMenu from "./components/ProSkaterMenu/ProSkaterMenu";
 import Product from "./components/Product/Product"
 import AddNew from "./components/Admin/AddNew/AddNew";
 
 const App = (props) => {
+
+    const [showAddNew, toggleAddNew] = useState({
+        selection: false,
+        addSkater: false,
+        addProduct: false
+    });
+
+    const showAddNewComponent = () => {
+        let show = false;
+        for (let x in showAddNew){
+            if (showAddNew[x] === true){
+                show = true;
+            }
+        }
+        return show;
+    }
 
     const tempLink = "http://streetleague.wpengine.netdna-cdn.com/wp-content/uploads/2018/07/2018_ProPage_headshots_NyjahHuston.jpg"
     const skaters = [
@@ -22,24 +38,16 @@ const App = (props) => {
                 }
             }
         },
-        { name: "Kelvin Hoeflerffffffffff", img: tempLink, id: "kelvinhoefler" },
-        { name: "Chaz Ortiz", img: tempLink, id: "chazortiz" },
-        { name: "Louie Lopez", img: tempLink, id: "louielopez" },
-        { name: "Yuto Horigome", img: "http://streetleague.wpengine.netdna-cdn.com/wp-content/uploads/2018/07/2018_ProPage_headshots_YutoHorigome.jpg", id: "yutohorigome" },
-        { name: "Gustavo Rubiero", img: tempLink, id: "gustavoruberio" },
-        { name: "Gustavo Rubiero", img: tempLink, id: "gustavoruberio" },
-        { name: "Gustavo Rubiero", img: tempLink, id: "gustavoruberio" },
-        { name: "Gustavo Rubiero", img: tempLink, id: "gustavoruberio" },
-        { name: "Gustavo Rubiero", img: tempLink, id: "gustavoruberio" },
+        { name: "Yuto Horigome", img: "http://streetleague.wpengine.netdna-cdn.com/wp-content/uploads/2018/07/2018_ProPage_headshots_YutoHorigome.jpg", id: "yutohorigome" }
     ];
     return (
         <>
-            <Header />
+            <Header addNew={[showAddNew, toggleAddNew]}/>
             <ProSkaterMenu skaters={skaters} />
             <main>
                 <Product currentSkater={skaters[0]}/>
             </main>
-            <AddNew />
+            {showAddNewComponent() && <AddNew addNew={[showAddNew, toggleAddNew]}/>}
         </>
     );
 }
