@@ -21,9 +21,9 @@ public class ProductDataAccessService implements ProductDao {
     @Override
     public int insertProduct(Product product, List<Image> images) {
 
-        String productSQL = "INSERT INTO products (id, type, link, review, skaterId) VALUES (?,?,?, ?,?)";
+        String productSQL = "INSERT INTO products (id, link, review, skaterId) VALUES (?,?,?,?)";
 
-        Object[] productInfo = {product.getId(), product.getType(), product.getLink(),
+        Object[] productInfo = {product.getId(), product.getLink(),
                                 product.getReview(), product.getSkaterId()};
 
         String imageSQL = "INSERT INTO images (id, urlToImage, productId) VALUES (?,?,?)";
@@ -51,7 +51,6 @@ public class ProductDataAccessService implements ProductDao {
         jdbcTemplate.query(productsSQL, resultSet -> {
             Map<String, Object> product = new HashMap<>();
             String id = resultSet.getString("id");
-            String type = resultSet.getString("type");
             String link = resultSet.getString("link");
             String skaterId = resultSet.getString("skaterId");
             String review = resultSet.getString("review");
@@ -59,7 +58,6 @@ public class ProductDataAccessService implements ProductDao {
             List<Object> images = getImages(id);
 
             product.put("id", id);
-            product.put("type", type);
             product.put("link", link);
             product.put("review", review);
             product.put("skater", skaterId);

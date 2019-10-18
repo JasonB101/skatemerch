@@ -1,13 +1,12 @@
 import React from "react";
 import Styles from "./Review.module.scss"
 
-const Review = (props) => {
+const Review = ({ review }) => {
 
     return (
         <div className={Styles.wrapper}>
             <h3>Review</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores autem, rem earum rerum ipsa animi nisi nulla explicabo sed perspiciatis voluptas? Cupiditate inventore veritatis natus corporis laborum voluptates consequuntur iure!
-            </p>
+            <p>{review}</p>
         </div>
     );
 }

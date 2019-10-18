@@ -1,8 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Header from "./components/Header/Header"
 import ProSkaterMenu from "./components/ProSkaterMenu/ProSkaterMenu";
 import Product from "./components/Product/Product"
 import AddNew from "./components/Admin/AddNew/AddNew";
+import {getSkaters} from "./api/skaterApi"
+import {getProducts} from "./api/productApi"
 
 const App = (props) => {
 
@@ -12,7 +14,23 @@ const App = (props) => {
         addProduct: false
     });
 
-    const [lastSkaterAdded, changeLastSkater] = useState("")
+    const [skaters, changeSkaters] = useState([]);
+    const [currentSkater, changeCurrentSkater] = useState({id: "", name: "", avatar: ""});
+    const [products, changeProducts] = useState([]);
+
+    useEffect(()=>{
+       setSkaters();
+    },[])
+
+    const setSkaters = () => {
+        getSkaters()
+        .then(results => {
+            changeSkaters(results.data);
+            changeCurrentSkater(results.data[0]);
+        })
+        getProducts()
+        .then(results => changeProducts(results.data))
+    }
 
     const showAddNewComponent = () => {
         let show = false;
@@ -26,15 +44,21 @@ const App = (props) => {
 
     const addNewProps = {
         addNew: [showAddNew, toggleAddNew],
-        lastSkater: [lastSkaterAdded, changeLastSkater]
+        setSkaters: setSkaters,
+        skaters: skaters
+    }
+
+    const productProps = {
+        currentSkater: currentSkater,
+        products: products
     }
 
     return (
         <>
             <Header addNew={[showAddNew, toggleAddNew]}/>
-            {/* <ProSkaterMenu skaters={skaters} /> */}
+            <ProSkaterMenu skaters={skaters} />
             <main>
-                {/* <Product currentSkater={}/> */}
+                <Product {...productProps}/>
             </main>
             {showAddNewComponent() && <AddNew {...addNewProps}/>}
         </>

@@ -9,8 +9,9 @@ const AddNewSkater = (props) => {
         skaterAvatar: ""
     })
 
-    const [clearAddNew, toggleAddNew] = props.showAddNew;
+    const [showAddNew, toggleAddNew] = props.showAddNew;
     const [lastSkaterAdded, changeLastSkater] = props.lastSkater;
+    const setSkaters = props.setSkaters;
 
     const changeInputs = (e) => {
         changeSkaterInputs({
@@ -20,8 +21,21 @@ const AddNewSkater = (props) => {
     }
 
     const submitSkater = (skater) => {
-        postNewSkater(skater);
-        changeLastSkater(skater.skaterName);
+        postNewSkater(skater)
+        .then(result => {
+            if (result.status === 200){
+
+                toggleAddNew({
+                    ...showAddNew,
+                    addSkater: false,
+                    selection: true
+                })
+
+                changeLastSkater(skater.skaterName);
+                setSkaters();
+            }
+        })
+        
     }
 
     return (
@@ -32,9 +46,9 @@ const AddNewSkater = (props) => {
                     value={skaterInputs.skaterName} />
 
             <div>
-                <img src={newSkaterImg} />
+                <img src={newSkaterImg} alt="Skater" />
 
-                <input onChange={changeInputs} type="text" name="avatarLink" 
+                <input onChange={changeInputs} type="text" name="skaterAvatar" 
                         placeholder="Link to Skater's Image:" 
                         value={skaterInputs.skaterAvatar} />
             </div>

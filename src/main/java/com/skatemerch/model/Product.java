@@ -10,19 +10,16 @@ public class Product {
 
     private String review;
     private UUID id;
-    private String type;
     private String link;
     private UUID skaterId;
     private List<Image> images = new ArrayList<>();
 
     public Product(@JsonProperty("skaterId") String skaterId,
-                  @JsonProperty("type") String type,
                   @JsonProperty("link") String link,
                   @JsonProperty("review") String review,
                   @JsonProperty("urlsToImages") String[] urls) {
         this.id = UUID.randomUUID();
         this.skaterId = UUID.fromString(skaterId);
-        this.type = type;
         this.link = link;
         this.review = review;
         for (String url : urls){
@@ -33,10 +30,6 @@ public class Product {
 
     public UUID getId() {
         return id;
-    }
-
-    public String getType() {
-        return type;
     }
 
     public String getLink() {
@@ -56,7 +49,6 @@ public class Product {
         System.out.println("Skater Id: " + getSkaterId());
         System.out.println();
         System.out.println("Product Id: " + getId());
-        System.out.println("Product Type: " + getType());
         System.out.println("Product link: " + getLink());
         System.out.println("Product link: " + getReview());
         System.out.println("Skater id: " + getSkaterId());

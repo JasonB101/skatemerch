@@ -5,7 +5,8 @@ const ProductGallery = ({images, imageMethods}) => {
     const [currentImage, setImage] = imageMethods;
     const imagesToRender = images.map(x => <img key={x} 
                                                 onClick={() => setImage(x)}
-                                                className={Styles.img} src={x} />)
+                                                className={Styles.img} src={x}
+                                                alt="products" />)
 
     return (
         <div className={Styles.wrapper}>

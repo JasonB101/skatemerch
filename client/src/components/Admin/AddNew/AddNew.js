@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Styles from "./AddNew.module.scss"
 import AddNewProduct from "./AddNewProduct/AddNewProduct"
 import AddNewSkater from "./AddNewSkater/AddNewSkater"
@@ -7,6 +7,7 @@ import Selection from "./Selection/Selection"
 const AddNew = (props) => {
     const [showAddNew, toggleAddNew] = props.addNew;
     const {selection, addSkater, addProduct} = showAddNew;
+    const [lastSkaterAdded, changeLastSkater] = useState("")
 
     const toggle = (e) => {
         if (e.target.id === "exitAddNew"){
@@ -23,17 +24,28 @@ const AddNew = (props) => {
     }
 
     const addNewSkaterProps = {
-        showAddNew: [clearAddNew, toggleAddNew],
-        lastSkater: props.lastSkater
+        showAddNew: [showAddNew, toggleAddNew],
+        lastSkater: [lastSkaterAdded, changeLastSkater],
+        setSkaters: props.setSkaters
+    }
+
+    const addNewProductProps = {
+        lastSkater: lastSkaterAdded,
+        clearAddNew: clearAddNew,
+        skaters: props.skaters
+    }
+
+    const selectionProps = {
+        addNew: props.addNew
     }
 
     return (
         <div id="exitAddNew" className={Styles.transparentWrapper} 
             onClick={toggle}>
             <div className={Styles.wrapper}>
-                {selection && <Selection addNewComponent={props.addNew}/>}
+                {selection && <Selection {...selectionProps}/>}
                 {addSkater && <AddNewSkater {...addNewSkaterProps}/>}
-                {addProduct && <AddNewProduct addNewComponent={props.addNew}/>}
+                {addProduct && <AddNewProduct {...addNewProductProps}/>}
             </div>
         </div>
     );
