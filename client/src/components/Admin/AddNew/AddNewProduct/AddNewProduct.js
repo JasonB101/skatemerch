@@ -2,27 +2,29 @@ import React, { useState } from "react";
 import Styles from "./AddNewProduct.module.scss"
 import ProductGallery from "../../../Product/ProductGallery/ProductGallery"
 import { postNewProduct } from "../../../../api/productApi"
+import {getAmazonProduct} from "../../../../api/amazonApi"
 
 const AddNewProduct = (props) => {
-
-
-    const tempImages = ["https://images-na.ssl-images-amazon.com/images/I/71Brt-aBu1L._UY395_.jpg",
-        "https://images-na.ssl-images-amazon.com/images/I/71D4bs8Q0ML._UY395_.jpg",
-        "https://images-na.ssl-images-amazon.com/images/I/71KB-91sG5L._UY395_.jpg",
-        "https://images-na.ssl-images-amazon.com/images/I/71ZUIkfdO1L._UY395_.jpg",
-        "https://images-na.ssl-images-amazon.com/images/I/71MKQvo0TpL._UY395_.jpg",
-        "https://images-na.ssl-images-amazon.com/images/I/71oNyU12lgL._UY395_.jpg"
-    ]
-    const skaters = props.skaters;
     const { lastSkater, clearAddNew } = props;
+    const skaters = props.skaters;
     const skatersNames = skaters.map(x => <option key={x.name}>{x.name}</option> );
+
+    const tempImages = []
+    
     const [currentImage, setImage] = useState(tempImages[0]);
     const [productInputs, changeProductInputs] = useState({
         skaterId: lastSkater ? getSkaterId(lastSkater) : getSkaterId(skaters[0].name),
         link: "",
         review: "",
-        urlsToImages: tempImages
+        urlsToImages: []
     })
+
+    const loadAmazonProduct = (link) => {
+        changeProductInputs({
+            ...productInputs,
+            urlsToImages: getAmazonProduct(link) || []
+        })
+    } 
 
     const submitProduct = () => {
         postNewProduct(productInputs)
@@ -60,10 +62,10 @@ const AddNewProduct = (props) => {
                 <input onChange={changeInputs}
                     type="text" name="link" placeholder="Link to Amazon product:"
                     value={productInputs.link} />
-                <button>Load</button>
+                <button onClick={() => loadAmazonProduct(productInputs.link)} >Load</button>
             </div>
             <div className={Styles.imageWrapper} >
-                <img className={Styles.currentImage} src={currentImage} alt="Product"/>
+                {productInputs.urlsToImages[0] && <img className={Styles.currentImage} src={currentImage} alt="Product"/>}
                 <ProductGallery images={productInputs.urlsToImages} setImage={setImage} />
             </div>
             <div className={Styles.skaterWrapper}>
