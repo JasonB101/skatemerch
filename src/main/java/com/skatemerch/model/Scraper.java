@@ -1,7 +1,7 @@
 package com.skatemerch.model;
 
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.html.*;
 
 import javax.imageio.IIOException;
 import java.io.IOException;
@@ -19,11 +19,22 @@ public class Scraper {
 
         try {
             HtmlPage page = client.getPage(baseURL);
+            HtmlElement result = page.getFirstByXPath("//div[@class='imgTagWrapper']//img");
+            String images = result.getAttribute("data-a-dynamic-image");
+
+            System.out.println(images);
+//            System.out.println(page.asXml());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //
     }
 
+
+
 }
+
+
