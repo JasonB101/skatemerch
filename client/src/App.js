@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Header from "./components/Header/Header"
 import ProSkaterMenu from "./components/ProSkaterMenu/ProSkaterMenu";
-import Product from "./components/Product/Product"
+import ProductList from "./components/Product/ProductList/ProductList"
 import AddNew from "./components/Admin/AddNew/AddNew";
 import {getSkaters} from "./api/skaterApi"
 import {getProducts} from "./api/productApi"
@@ -56,9 +56,9 @@ const App = (props) => {
     return (
         <>
             <Header addNew={[showAddNew, toggleAddNew]}/>
-            <ProSkaterMenu skaters={skaters} />
+            <ProSkaterMenu skaters={skaters} changeCurrentSkater={changeCurrentSkater} />
             <main>
-                <Product {...productProps}/>
+                <ProductList {...productProps} />
             </main>
             {showAddNewComponent() && <AddNew {...addNewProps}/>}
         </>

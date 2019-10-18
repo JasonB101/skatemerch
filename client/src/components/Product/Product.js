@@ -1,26 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Styles from "./Product.module.scss"
 import AmazonButton from "./AmazonButton/AmazonButton";
 import Review from "./Review/Review";
 import ProductGallery from "./ProductGallery/ProductGallery"
 
 const Product = (props) => {
-    const { currentSkater, products } = props
-    const product = products.find(x => x.skater === currentSkater.id);
-    const images = product ? product.images.map(x => x.urlToImage) : [];
-    const link = product ? product.link : "";
-    const review = product ? product.review : "";
-    const [currentImage, setImage] = useState("");
+    const { link, review } = props;
+    const images = props.images.map(x => x.urlToImage)
 
-    useEffect(() => {
-
-        setImage(images[0])
-
-    }, [product])
+    const [currentImage, setImage] = useState(images[0]);
 
     const productGalleryProps = {
-        images: images,
-        imageMethods: [currentImage, setImage]
+        images,
+        setImage
     }
 
 

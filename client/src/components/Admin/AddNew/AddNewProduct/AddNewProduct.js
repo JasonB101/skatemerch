@@ -16,9 +16,7 @@ const AddNewProduct = (props) => {
     const skaters = props.skaters;
     const { lastSkater, clearAddNew } = props;
     const skatersNames = skaters.map(x => <option key={x.name}>{x.name}</option> );
-
     const [currentImage, setImage] = useState(tempImages[0]);
-    // const [images, changeImages] = useState(tempImages);
     const [productInputs, changeProductInputs] = useState({
         skaterId: lastSkater ? getSkaterId(lastSkater) : getSkaterId(skaters[0].name),
         link: "",
@@ -66,7 +64,7 @@ const AddNewProduct = (props) => {
             </div>
             <div className={Styles.imageWrapper} >
                 <img className={Styles.currentImage} src={currentImage} alt="Product"/>
-                <ProductGallery images={productInputs.urlsToImages} imageMethods={[currentImage, setImage]} />
+                <ProductGallery images={productInputs.urlsToImages} setImage={setImage} />
             </div>
             <div className={Styles.skaterWrapper}>
                 <h4>Skater:</h4>

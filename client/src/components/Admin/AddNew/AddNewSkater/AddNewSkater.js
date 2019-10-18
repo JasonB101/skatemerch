@@ -10,7 +10,7 @@ const AddNewSkater = (props) => {
     })
 
     const [showAddNew, toggleAddNew] = props.showAddNew;
-    const [lastSkaterAdded, changeLastSkater] = props.lastSkater;
+    const changeLastSkater = props.lastSkater[1];
     const setSkaters = props.setSkaters;
 
     const changeInputs = (e) => {
@@ -46,7 +46,7 @@ const AddNewSkater = (props) => {
                     value={skaterInputs.skaterName} />
 
             <div>
-                <img src={newSkaterImg} alt="Skater" />
+                <img src={skaterInputs.skaterAvatar || newSkaterImg} alt="Skater" />
 
                 <input onChange={changeInputs} type="text" name="skaterAvatar" 
                         placeholder="Link to Skater's Image:" 

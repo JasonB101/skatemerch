@@ -1,16 +1,16 @@
 import React from "react";
 import Styles from "./ProductGallery.module.scss"
 
-const ProductGallery = ({images, imageMethods}) => {
-    const [currentImage, setImage] = imageMethods;
-    const imagesToRender = images.map(x => <img key={x} 
+const ProductGallery = ({images, setImage}) => {
+    const imagesToRender = images.map((x, i) => <img key={x + String(i)} 
                                                 onClick={() => setImage(x)}
                                                 className={Styles.img} src={x}
-                                                alt="products" />)
+                                                alt="products" />
+                                                )
 
     return (
         <div className={Styles.wrapper}>
-            {imagesToRender && imagesToRender}
+            {imagesToRender}
         </div>
     );
 }
