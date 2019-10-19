@@ -28,8 +28,13 @@ const App = (props) => {
             changeSkaters(results.data);
             changeCurrentSkater(results.data[0]);
         })
+        fetchProducts();
+        
+    }
+
+    const fetchProducts = () => {
         getProducts()
-        .then(results => changeProducts(results.data))
+        .then(results => changeProducts(results.data));
     }
 
     const showAddNewComponent = () => {
@@ -45,7 +50,8 @@ const App = (props) => {
     const addNewProps = {
         addNew: [showAddNew, toggleAddNew],
         setSkaters: setSkaters,
-        skaters: skaters
+        skaters: skaters,
+        getProducts: fetchProducts
     }
 
     const productProps = {

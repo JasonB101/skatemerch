@@ -32,7 +32,8 @@ const AddNew = (props) => {
     const addNewProductProps = {
         lastSkater: lastSkaterAdded,
         clearAddNew: clearAddNew,
-        skaters: props.skaters
+        skaters: props.skaters,
+        getProducts: props.getProducts
     }
 
     const selectionProps = {
