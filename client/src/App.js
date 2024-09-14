@@ -1,74 +1,56 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useContext } from "react"
+import { Routes, Route, Redirect } from "react-router-dom"
 import Header from "./components/Header/Header"
-import ProSkaterMenu from "./components/ProSkaterMenu/ProSkaterMenu";
-import ProductList from "./components/Product/ProductList/ProductList"
-import AddNew from "./components/Admin/AddNew/AddNew";
-import {getSkaters} from "./api/skaterApi"
-import {getProducts} from "./api/productApi"
+import ProSkaters from "./components/ProSkaters/ProSkaters"
+import AddNew from "./components/Admin/AddNew/AddNew"
+import { storeContext } from "./Store"
 
-const App = (props) => {
+const App = () => {
+  const storeData = useContext(storeContext)
+  const { skaters, products, changeSkaters, changeProducts } = storeData
 
-    const [showAddNew, toggleAddNew] = useState({
-        selection: false,
-        addSkater: false,
-        addProduct: false
-    });
+  const [showAddNewO, toggleAddNew] = useState({
+    selection: false,
+    addSkater: false,
+    addProduct: false,
+    //addAffiliate
+  })
 
-    const [skaters, changeSkaters] = useState([]);
-    const [currentSkater, changeCurrentSkater] = useState({id: "", name: "", avatar: ""});
-    const [products, changeProducts] = useState([]);
-
-    useEffect(()=>{
-       setSkaters();
-    },[])
-
-    const setSkaters = () => {
-        getSkaters()
-        .then(results => {
-            changeSkaters(results.data);
-            changeCurrentSkater(results.data[0]);
-        })
-        fetchProducts();
-        
+  const showAddNewComponent = () => {
+    let show = false
+    for (let x in showAddNewO) {
+      if (showAddNewO[x] === true) {
+        show = true
+      }
     }
+    return show
+  }
 
-    const fetchProducts = () => {
-        getProducts()
-        .then(results => changeProducts(results.data));
-    }
+  const addNewProps = {
+    addNew: [showAddNewO, toggleAddNew],
+    changeSkaters, //used to setSkaters which calls the backend for all of the skaters after saving one, now I will just add it to state
+    skaters,
+    changeProducts,
+  }
 
-    const showAddNewComponent = () => {
-        let show = false;
-        for (let x in showAddNew){
-            if (showAddNew[x] === true){
-                show = true;
-            }
-        }
-        return show;
-    }
+  const proSkaterProps = {
+    skaters,
+    products,
+  }
 
-    const addNewProps = {
-        addNew: [showAddNew, toggleAddNew],
-        setSkaters: setSkaters,
-        skaters: skaters,
-        getProducts: fetchProducts
-    }
-
-    const productProps = {
-        currentSkater: currentSkater,
-        products: products
-    }
-
-    return (
-        <>
-            <Header addNew={[showAddNew, toggleAddNew]}/>
-            <ProSkaterMenu skaters={skaters} changeCurrentSkater={changeCurrentSkater} />
-            <main>
-                <ProductList {...productProps} />
-            </main>
-            {showAddNewComponent() && <AddNew {...addNewProps}/>}
-        </>
-    );
+  return (
+    <>
+      <Header addNew={[showAddNewO, toggleAddNew]} />
+      <Routes>
+        <Route
+          path="/proskaters"
+          element={<ProSkaters {...proSkaterProps} />}
+        />
+      </Routes>
+      <main></main>
+      {showAddNewComponent() && <AddNew {...addNewProps} />}
+    </>
+  )
 }
 
-export default App;
+export default App

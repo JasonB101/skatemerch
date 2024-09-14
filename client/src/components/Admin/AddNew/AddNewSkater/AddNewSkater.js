@@ -3,15 +3,14 @@ import Styles from "./AddNewSkater.module.scss"
 import newSkaterImg from "../../../../images/skaters/newSkater.png"
 import { postNewSkater } from "../../../../api/skaterApi"
 
-const AddNewSkater = (props) => {
+const AddNewSkater = ({showAddNewArray, lastSkater, changeSkaters}) => {
     const [skaterInputs, changeSkaterInputs] = useState({
         skaterName: "",
         skaterAvatar: ""
     })
 
-    const [showAddNew, toggleAddNew] = props.showAddNew;
-    const changeLastSkater = props.lastSkater[1];
-    const setSkaters = props.setSkaters;
+    const [showAddNewO, toggleAddNew] = showAddNewArray;
+    const changeLastSkater = lastSkater[1];
 
     const changeInputs = (e) => {
         changeSkaterInputs({
@@ -26,13 +25,13 @@ const AddNewSkater = (props) => {
             if (result.status === 200){
 
                 toggleAddNew({
-                    ...showAddNew,
+                    ...showAddNewO,
                     addSkater: false,
                     selection: true
                 })
 
                 changeLastSkater(skater.skaterName);
-                setSkaters();
+                // setSkaters() need to change to changeSkaters and make sure 'skater' has the same structure as returned by the API
             }
         })
         

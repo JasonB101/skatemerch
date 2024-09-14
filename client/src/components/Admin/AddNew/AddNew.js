@@ -4,19 +4,19 @@ import AddNewProduct from "./AddNewProduct/AddNewProduct"
 import AddNewSkater from "./AddNewSkater/AddNewSkater"
 import Selection from "./Selection/Selection"
 
-const AddNew = (props) => {
-    const [showAddNew, toggleAddNew] = props.addNew;
-    const {selection, addSkater, addProduct} = showAddNew;
+const AddNew = ({addNew, skaters, changeSkaters, changeProducts}) => {
+    const [showAddNewO, toggleAddNew] = addNew;
+    const {selection, addSkater, addProduct} = showAddNewO;
     const [lastSkaterAdded, changeLastSkater] = useState("")
 
     const toggle = (e) => {
         if (e.target.id === "exitAddNew"){
-            clearAddNew();
+            clearAddNewO();
         }
     }
 
-    const clearAddNew = () => {
-        let newObj = {...showAddNew};
+    const clearAddNewO = () => {
+        let newObj = {...showAddNewO};
             for (let x in newObj){
                 newObj[x] = false;
             }
@@ -24,20 +24,20 @@ const AddNew = (props) => {
     }
 
     const addNewSkaterProps = {
-        showAddNew: [showAddNew, toggleAddNew],
+        showAddNewArray: [showAddNewO, toggleAddNew],
         lastSkater: [lastSkaterAdded, changeLastSkater],
-        setSkaters: props.setSkaters
+        changeSkaters
     }
 
     const addNewProductProps = {
         lastSkater: lastSkaterAdded,
-        clearAddNew: clearAddNew,
-        skaters: props.skaters,
-        getProducts: props.getProducts
+        clearAddNewO: clearAddNewO,
+        skaters: skaters,
+        changeProducts
     }
 
     const selectionProps = {
-        addNew: props.addNew
+        addNew: addNew
     }
 
     return (

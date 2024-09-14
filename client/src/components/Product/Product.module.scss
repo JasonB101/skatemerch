@@ -18,11 +18,14 @@
     grid-area: di;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 95%;
 }
 
 .displayImg {
     margin: 10px;
-    width: 95%;
+    max-height: 350px;
+    max-width: 98%;
 }
 
 .info {

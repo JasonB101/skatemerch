@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import Styles from "./AddNewProduct.module.scss"
 import ProductGallery from "../../../Product/ProductGallery/ProductGallery"
 import { postNewProduct } from "../../../../api/productApi"
-import { getAmazonProduct } from "../../../../api/amazonApi"
+// import { getAmazonProduct } from "../../../../api/amazonApi"
 
-const AddNewProduct = (props) => {
-    const { lastSkater, clearAddNew, getProducts } = props;
-    const skaters = props.skaters;
+const AddNewProduct = ({skaters, lastSkater, clearAddNewO, changeProducts}) => {
     const skatersNames = skaters.map(x => <option key={x.name}>{x.name}</option>);
 
     const tempImages = []
@@ -33,19 +31,20 @@ const AddNewProduct = (props) => {
     }
     //temporary 
 
-    const loadAmazonProduct = (link) => {
-        changeProductInputs({
-            ...productInputs,
-            urlsToImages: getAmazonProduct(link) || []
-        })
-    }
+    // const loadAmazonProduct = (link) => {
+    //     changeProductInputs({
+    //         ...productInputs,
+    //         urlsToImages: getAmazonProduct(link) || []
+    //     })
+    // }
 
     const submitProduct = () => {
         postNewProduct(productInputs)
             .then(result => {
                 if (result.status === 200) {
-                    clearAddNew();
-                    getProducts();
+                    clearAddNewO();
+                    // getProducts(); //right here, I do changeProducts instead////////////////////////////////////////////////////////////////////////////////////////
+                    //I need to make sure productInputs has the same structure as what is returned from the API
                 }
             })
     }

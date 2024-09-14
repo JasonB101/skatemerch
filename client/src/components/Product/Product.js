@@ -21,6 +21,7 @@ const Product = (props) => {
             <div className={Styles.displayImgWrapper}>
                 <img className={Styles.displayImg} src={currentImage} alt="Product" />
             </div>
+            <div className="spacer"></div>
 
             <div className={Styles.info}>
                 <ProductGallery {...productGalleryProps} />

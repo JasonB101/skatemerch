@@ -4,13 +4,13 @@ import skaterImg from "../../../../images/icons/skater.png"
 import productImg from "../../../../images/icons/hat.png"
 
 const Selection = ({addNew}) => {
-    const [showAddNew, toggleAddNew] = addNew;
+    const [showAddNewO, toggleAddNew] = addNew;
 
-    const showSelection = (selection) => {
+    const showSelection = (selected) => {
         toggleAddNew({
-            ...showAddNew,
+            ...showAddNewO,
             selection: false,
-            [selection]: true
+            [selected]: true
         })
     }
 

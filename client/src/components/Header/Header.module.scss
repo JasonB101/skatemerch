@@ -8,7 +8,7 @@
     background: url("../../images/backgrounds/header.png");
     margin-bottom: 40px;
 
-    h1{
+    h1, a {
         display: flex;
         height: 100%;
         width: fit-content;
@@ -17,5 +17,11 @@
         color: rgb(223, 222, 222);
         font-family: "Fredericka the Great";
         cursor: pointer;
+    }
+
+    a {
+        font-size: 30px;
+        text-decoration: none;
+        margin: 0 10px 0 10px;
     }
 }

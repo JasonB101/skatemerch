@@ -10,3 +10,4 @@ export const getAmazonProduct = async (link) => {
     console.log(images)
     return images || [];
 }
+ //This type of action is for the controller on the backend not the front end. So, fiqure it out in Java
