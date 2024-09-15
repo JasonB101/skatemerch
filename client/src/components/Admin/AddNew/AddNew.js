@@ -4,7 +4,7 @@ import AddNewProduct from "./AddNewProduct/AddNewProduct"
 import AddNewSkater from "./AddNewSkater/AddNewSkater"
 import Selection from "./Selection/Selection"
 
-const AddNew = ({addNew, skaters, changeSkaters, changeProducts}) => {
+const AddNew = ({addNew, skaters, changeSkaters, changeProducts, setSkaters}) => {
     const [showAddNewO, toggleAddNew] = addNew;
     const {selection, addSkater, addProduct} = showAddNewO;
     const [lastSkaterAdded, changeLastSkater] = useState("")
@@ -26,7 +26,9 @@ const AddNew = ({addNew, skaters, changeSkaters, changeProducts}) => {
     const addNewSkaterProps = {
         showAddNewArray: [showAddNewO, toggleAddNew],
         lastSkater: [lastSkaterAdded, changeLastSkater],
-        changeSkaters
+        changeSkaters,
+        skaters,
+        setSkaters
     }
 
     const addNewProductProps = {

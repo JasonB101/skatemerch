@@ -29,7 +29,8 @@ const Store = ({ children }) => {
     skaters,
     products,
     changeSkaters,
-    changeProducts
+    changeProducts,
+    setSkaters
   }}>{children}</storeContext.Provider>
 }
 

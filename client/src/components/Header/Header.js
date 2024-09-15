@@ -4,25 +4,31 @@ import { NavLink } from "react-router-dom"
 import Styles from "./Header.module.scss"
 
 const Header = ({ addNew }) => {
-  const [showAddNew, toggleAddNew] = addNew
-
-  const changeAddNew = () => {
-    toggleAddNew({
-      ...showAddNew,
-      selection: true,
-    })
-  }
+ 
 
   return (
     <header className={`${Styles.wrapper} shadow`}>
-      <h1>SkateMerch</h1>
+      <div className="spacer"></div>
       <NavLink
         to="/proskaters"
       >
         Pro Skaters
       </NavLink>
+      <NavLink
+        to="/tricktips"
+      >
+        Trick Tips
+      </NavLink>
+      <NavLink
+        to="/events"
+      >
+        Event Calendar
+      </NavLink>
+      <NavLink
+        to="/products"
+      >Products
+      </NavLink>
       <div className="spacer"></div>
-      <h1 onClick={(e) => changeAddNew()}>Add New</h1>
     </header>
   )
 }
