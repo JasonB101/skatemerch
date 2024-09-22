@@ -2,5 +2,5 @@ app:
   datasource:
     jdbc-url: jdbc:postgresql://localhost:5432/skatemerch_db
     username: postgres
-    password: Wtf10101$$
+    password: password
     pool-size: 30
