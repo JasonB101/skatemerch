@@ -29,8 +29,7 @@ public class SkaterDataAccessService implements SkaterDao {
 
     @Override
     public List<Object> selectAllSkaters() {
-        List<Object> skaters = getSkaters();
-        return skaters;
+        return getSkaters();
     }
 
 

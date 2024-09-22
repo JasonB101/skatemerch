@@ -1,7 +1,8 @@
 import React from "react";
 import Styles from "./Selection.module.scss"
 import skaterImg from "../../../../images/icons/skater.png"
-import productImg from "../../../../images/icons/hat.png"
+import productImg from "../../../../images/icons/shoe.png"
+import tipsImg from "../../../../images/icons/tips.png"
 
 const Selection = ({addNew}) => {
     const [showAddNewO, toggleAddNew] = addNew;
@@ -19,12 +20,14 @@ const Selection = ({addNew}) => {
             <div className={Styles.selector}
             onClick={() => showSelection("addSkater")}>
                 <img src={skaterImg} alt="Skater"/>
-                <h4>Skater</h4>
             </div>
             <div className={Styles.selector}
             onClick={() => showSelection("addProduct")}>
                 <img src={productImg} alt="Product" />
-                <h4>Product</h4>
+            </div>
+            <div className={Styles.selector}
+            onClick={() => showSelection("addTrickTip")}>
+                <img src={tipsImg} alt="TrickTip" />
             </div>
         </div>
     );

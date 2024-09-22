@@ -3,13 +3,13 @@ import Styles from "./AddNewSkater.module.scss"
 import newSkaterImg from "../../../../images/skaters/newSkater.png"
 import { postNewSkater } from "../../../../api/skaterApi"
 
-const AddNewSkater = ({showAddNewArray, lastSkater, changeSkaters, skaters, setSkaters}) => {
+const AddNewSkater = ({addNew, lastSkater, changeSkaters, skaters, setSkaters}) => {
     const [skaterInputs, changeSkaterInputs] = useState({
         skaterName: "",
         skaterAvatar: ""
     })
 
-    const [showAddNewO, toggleAddNew] = showAddNewArray;
+    const [showAddNewO, toggleAddNew] = addNew;
     const changeLastSkater = lastSkater[1];
 
     const changeInputs = (e) => {

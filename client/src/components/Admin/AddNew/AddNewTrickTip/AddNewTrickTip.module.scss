@@ -21,6 +21,14 @@ $addNewBLue: rgb(13, 90, 134);
             color: $addNewBLue;
         }
     }
+    textarea {
+        padding: 5px;
+        margin: 0 5px;
+        font-size: 15px;
+        &::placeholder{
+            color: $addNewBLue;
+        }
+    }
     img {
         padding: 5px;
         height: 120px;

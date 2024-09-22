@@ -2,11 +2,12 @@ import React, {useState} from "react";
 import Styles from "./AddNew.module.scss"
 import AddNewProduct from "./AddNewProduct/AddNewProduct"
 import AddNewSkater from "./AddNewSkater/AddNewSkater"
+import AddNewTrickTip from "./AddNewTrickTip/AddNewTrickTip"
 import Selection from "./Selection/Selection"
 
 const AddNew = ({addNew, skaters, changeSkaters, changeProducts, setSkaters}) => {
     const [showAddNewO, toggleAddNew] = addNew;
-    const {selection, addSkater, addProduct} = showAddNewO;
+    const {selection, addSkater, addProduct, addTrickTip} = showAddNewO;
     const [lastSkaterAdded, changeLastSkater] = useState("")
 
     const toggle = (e) => {
@@ -24,7 +25,7 @@ const AddNew = ({addNew, skaters, changeSkaters, changeProducts, setSkaters}) =>
     }
 
     const addNewSkaterProps = {
-        showAddNewArray: [showAddNewO, toggleAddNew],
+        addNew,
         lastSkater: [lastSkaterAdded, changeLastSkater],
         changeSkaters,
         skaters,
@@ -38,6 +39,10 @@ const AddNew = ({addNew, skaters, changeSkaters, changeProducts, setSkaters}) =>
         changeProducts
     }
 
+    const addNewTrickTipProps = {
+        addNew
+    }
+
     const selectionProps = {
         addNew: addNew
     }
@@ -49,6 +54,7 @@ const AddNew = ({addNew, skaters, changeSkaters, changeProducts, setSkaters}) =>
                 {selection && <Selection {...selectionProps}/>}
                 {addSkater && <AddNewSkater {...addNewSkaterProps}/>}
                 {addProduct && <AddNewProduct {...addNewProductProps}/>}
+                {addTrickTip && <AddNewTrickTip {...addNewTrickTipProps}/>}
             </div>
         </div>
     );
