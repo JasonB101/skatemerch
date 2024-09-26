@@ -35,6 +35,8 @@ const Admin = ({skaters, products, changeSkaters, changeProducts, setSkaters}) =
   return (
     <>
       <h1 onClick={(e) => clickedAddNew()}>Add New</h1>
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Fgjw2WJxl1Q?si=fs-W1Bx-BroDevmW&amp;clip=UgkxKsMEMJFvKDhAOcFdtNi9tBQyQJ9HtjKw&amp;clipt=EAAYvO8B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       {showAddNewComponent() && <AddNew {...addNewProps} />}
     </>
   )

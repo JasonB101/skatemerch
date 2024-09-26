@@ -3,6 +3,7 @@ import Styles from "./Selection.module.scss"
 import skaterImg from "../../../../images/icons/skater.png"
 import productImg from "../../../../images/icons/shoe.png"
 import tipsImg from "../../../../images/icons/tips.png"
+import eventsImg from "../../../../images/icons/events.png"
 
 const Selection = ({addNew}) => {
     const [showAddNewO, toggleAddNew] = addNew;
@@ -22,12 +23,16 @@ const Selection = ({addNew}) => {
                 <img src={skaterImg} alt="Skater"/>
             </div>
             <div className={Styles.selector}
-            onClick={() => showSelection("addProduct")}>
-                <img src={productImg} alt="Product" />
+            onClick={() => showSelection("addTrickTip")}>
+                <img src={tipsImg} alt="TrickTip" />
             </div>
             <div className={Styles.selector}
             onClick={() => showSelection("addTrickTip")}>
-                <img src={tipsImg} alt="TrickTip" />
+                <img src={eventsImg} alt="Events" />
+            </div>
+            <div className={Styles.selector}
+            onClick={() => showSelection("addProduct")}>
+                <img src={productImg} alt="Product" />
             </div>
         </div>
     );

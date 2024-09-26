@@ -5,10 +5,11 @@ import ProSkaters from "./components/ProSkaters/ProSkaters"
 import Admin from "./components/Admin/Admin"
 import AddNew from "./components/Admin/AddNew/AddNew"
 import { storeContext } from "./Store"
+import TrickTips from "./components/TrickTips/TrickTips"
 
 const App = () => {
   const storeData = useContext(storeContext)
-  const { skaters, products, changeSkaters, changeProducts, setSkaters } = storeData
+  const { skaters, products, changeSkaters, changeProducts, setSkaters, trickTips } = storeData
 
   
 
@@ -18,6 +19,10 @@ const App = () => {
     products,
     changeProducts,
     setSkaters
+  }
+
+  const trickTipProps = {
+    tips: trickTips
   }
 
   return (
@@ -31,6 +36,10 @@ const App = () => {
         <Route
           path="/admin"
           element={<Admin {...proSkaterProps} />}
+        />
+        <Route
+          path="/tricktips"
+          element={<TrickTips {...trickTipProps} />}
         />
       </Routes>
       <main></main>
